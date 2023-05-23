@@ -1,0 +1,39 @@
+.login-form {
+    max-width: 300px;
+    margin: 0 auto;
+}
+
+.input-container {
+    margin-bottom: 1rem;
+}
+
+.input-field {
+    padding: 0.5rem;
+    width: 100%;
+}
+
+.submit-button {
+    padding: 0.5rem 1rem;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+/* Add the following styles to reduce the size of the fields */
+.input-field {
+    font-size: 14px;
+    padding: 0.3rem;
+}
+
+.submit-button {
+    font-size: 14px;
+    padding: 0.3rem 0.6rem;
+}
+
+.small-input {
+    padding: 0.2rem 0.5rem;
+    font-size: 14px;
+  }
+  
