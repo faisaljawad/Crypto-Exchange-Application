@@ -1,17 +1,44 @@
-import React from 'react';
+import React, { useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './login.css';
 import { Form, Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import { toast, ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
-function Login() {
+function Login({ users }) {
+    const [formData, setFormData] = useState({
+        email: '',
+        password: '',
+    });
 
     const handleSubmit = (event) => {
         event.preventDefault();
         // Handle form submission logic below
         const userEmail = event.target.elements.email.value;
         const userPassword = event.target.elements.password.value;
-        console.log(userEmail, userPassword);
+        // Find the user with the matching email and password
+        const authenticatedUser = users.find((user) => user.email === userEmail && user.password === userPassword);
+        console.log(authenticatedUser);
+        if (authenticatedUser) {
+            // Authentication successful, perform your desired actions
+            console.log('Authentication successful');
+            toast.success('Login successful'); // Show success toast notification
+            // Reset the Login Form
+            event.target.reset();
+          } else {
+            // Authentication failed, show an error message or perform other actions
+            console.log('Authentication failed');
+            toast.error('Invalid email or password'); // Show error toast notification
+
+            // Show an error message or perform other actions
+          }
+      
+          // Reset the form
+          setFormData({
+            email: '',
+            password: '',
+          });
     };
 
     const handleSignup = () => {
