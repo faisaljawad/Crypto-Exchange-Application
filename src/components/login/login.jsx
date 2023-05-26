@@ -5,8 +5,11 @@ import { Form, Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { useNavigate } from 'react-router-dom';
 
-function Login({ users }) {
+function Login({ users, isLoggedIn, setIsLoggedIn }) {
+    const navigate = useNavigate();
+
     const [formData, setFormData] = useState({
         email: '',
         password: '',
@@ -26,12 +29,16 @@ function Login({ users }) {
             toast.success('Login successful'); // Show success toast notification
             // Reset the Login Form
             event.target.reset();
+            // Set Login state to true
+            setIsLoggedIn(true);
+            navigate('/dashboard'); // Navigate to Dashboard
+
+
         } else {
             // Authentication failed, show an error message or perform other actions
             console.log('Authentication failed');
             toast.error('Invalid email or password'); // Show error toast notification
 
-            // Show an error message or perform other actions
         }
 
         // Reset the form
