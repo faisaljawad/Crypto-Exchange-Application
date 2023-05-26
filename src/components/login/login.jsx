@@ -32,26 +32,11 @@ function Login({ users, isLoggedIn, setIsLoggedIn }) {
             // Set Login state to true
             setIsLoggedIn(true);
             navigate('/dashboard'); // Navigate to Dashboard
-
-
         } else {
             // Authentication failed, show an error message or perform other actions
             console.log('Authentication failed');
             toast.error('Invalid email or password'); // Show error toast notification
-
         }
-
-        // Reset the form
-        setFormData({
-            email: '',
-            password: '',
-        });
-    };
-
-    const handleSignup = () => {
-        // Handle signup navigation logic here
-        // For example, you can use React Router to navigate to the signup component
-        // history.push('/signup');
     };
 
     return (

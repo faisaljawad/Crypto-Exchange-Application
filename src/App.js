@@ -11,9 +11,9 @@ import Dashboard from './components/dashboard/dashboard';
 
 function App() {
   const [users, setUsers] = useState([
+    // Hardcoded users to save time on signup
     { email: 'abc@example.com', password: 'abc123' },
     { email: 'user2@example.com', password: 'password2' },
-    // Add more users as needed
   ]);
   const [isLoggedIn, setIsLoggedIn] = useState(false); // State for login status of the application
 
