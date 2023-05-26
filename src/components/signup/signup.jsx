@@ -2,9 +2,14 @@ import React, { useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Form, Button, Alert } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+
+// Using Yum for Form Field Validations
 import * as Yup from 'yup';
+
+// Using toast for showing messages as a snackbar
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+
 import { useNavigate } from 'react-router-dom';
 
 
@@ -43,31 +48,27 @@ function Signup({ users, setUsers }) {
                 address: formValues.address
             };
 
-            // Update the state by adding the new user to the existing array
+            // Add the new user in state
             setUsers([...users, newUser]);
+
             toast.success('Sign Up Successful'); // Show success toast notification
-            navigate('/'); // Redirect to the login page
-            // Clear the form
+            
+            navigate('/'); // After successful sign up, the user will be redirect to login page 
+            
+            // Reset form
             event.target.reset();
 
             setErrors({}); // Clear any existing errors
 
         } catch (error) {
-            // Validation failed, set the errors state
+
             const validationErrors = {};
             error.inner.forEach((err) => {
                 validationErrors[err.path] = err.message;
             });
             setErrors(validationErrors);
-            toast.success('Sign Up Failed'); // Show success toast notification
-            
+            toast.success('Sign Up Failed'); // Show success toast notification            
         }
-    };
-
-    const handleLogin = () => {
-        // Handle login navigation logic here
-        // For example, you can use React Router to navigate to the login component
-        // history.push('/');
     };
 
     return (
@@ -106,7 +107,7 @@ function Signup({ users, setUsers }) {
                                 <Form.Control type="file" name="uploadedFile" accept=".pdf" />
                                 {errors.uploadedFile && <Alert variant="danger">{errors.uploadedFile}</Alert>}
                             </Form.Group>
-
+                            
                             <div className="text-center">
                                 <br />
                                 <Button variant="primary" type="submit" className="mb-3">Sign Up</Button>
