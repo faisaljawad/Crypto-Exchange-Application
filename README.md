@@ -1,3 +1,17 @@
+Project Details: 
+**Login Page:**
+![image](https://github.com/faisaljawad/Crypto-Exchange-Application/assets/40547804/f8b249de-f000-4875-be2f-715592e13cbb)
+
+**SignUp Page:**
+![image](https://github.com/faisaljawad/Crypto-Exchange-Application/assets/40547804/033a3c78-77b0-4119-9eda-969dc6a03346)
+
+**Validation Messages:**
+![image](https://github.com/faisaljawad/Crypto-Exchange-Application/assets/40547804/7c02c496-7ef8-4d4a-912b-eb1325add2ad)
+
+**Login Success (Dashboard):**
+![image](https://github.com/faisaljawad/Crypto-Exchange-Application/assets/40547804/8c4f2147-f7cf-43cb-af5b-5a64609161df)
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
@@ -68,3 +82,4 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
