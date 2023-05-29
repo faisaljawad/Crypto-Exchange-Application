@@ -94,7 +94,7 @@ function Blogs({ isLoggedIn }) {
                             <td>{blog.author}</td>
                             <td>
                                 <Button variant="primary">View</Button>{' '}
-                                <Button variant="warning">Edit</Button>{' '}
+                                <Button variant="outline-secondary">Edit</Button>{' '}
                                 <Button variant="danger" onClick={() => handleDeleteConfirmation(blog.id)}>Delete</Button>
                             </td>
                         </tr>
