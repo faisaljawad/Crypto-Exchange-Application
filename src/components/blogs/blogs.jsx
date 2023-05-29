@@ -9,17 +9,19 @@ import 'react-toastify/dist/ReactToastify.css';
 function Blogs({ isLoggedIn }) {
     const [showModal, setShowModal] = useState(false);
     const [blogs, setBlogs] = useState([
-        { id: 1, title: 'Blog 1', subtitle: 'Subtitle 1', author: 'Author 1' },
-        { id: 2, title: 'Blog 2', subtitle: 'Subtitle 2', author: 'Author 2' },
-        { id: 3, title: 'Blog 3', subtitle: 'Subtitle 3', author: 'Author 3' },
+        { id: 1, title: 'Blog 1', subtitle: 'Subtitle 1', author: 'Author X' },
+        { id: 2, title: 'Blog 2', subtitle: 'Subtitle 2', author: 'Author Y' },
+        { id: 3, title: 'Blog 3', subtitle: 'Subtitle 3', author: 'Author Z' },
     ]);
     const [newBlog, setNewBlog] = useState({ title: '', subtitle: '', author: '' });
+    const [deletingBlogId, setDeletingBlogId] = useState(null);
+    const [showDeleteConfirmation, setShowDeleteConfirmation] = useState(false);
 
     const navigate = useNavigate();
 
     if (!isLoggedIn) {
         return (
-            <div className="dashboard-container">
+            <div className="blogs-container">
                 <div className="welcome-message">
                     <h2>Sorry!</h2>
                     <p>You do not have appropriate access to view blogs.</p>
@@ -51,6 +53,22 @@ function Blogs({ isLoggedIn }) {
         toast.success('Blog successfully created!');
     };
 
+    const handleDeleteConfirmation = (blogId) => {
+        setDeletingBlogId(blogId);
+        setShowDeleteConfirmation(true);
+    };
+
+    const handleDeleteBlog = () => {
+        // Filter the blogs array to exclude the blog with the deletingBlogId
+        const updatedBlogs = blogs.filter(blog => blog.id !== deletingBlogId);
+        setBlogs(updatedBlogs);
+
+        // Reset the deletingBlogId and hide the confirmation dialog
+        setDeletingBlogId(null);
+        setShowDeleteConfirmation(false);
+    };
+
+
     return (
         <div className="blogs-table">
             <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
@@ -78,12 +96,25 @@ function Blogs({ isLoggedIn }) {
                             <td>
                                 <Button variant="primary">View</Button>{' '}
                                 <Button variant="warning">Edit</Button>{' '}
-                                <Button variant="danger">Delete</Button>
+                                <Button variant="danger" onClick={() => handleDeleteConfirmation(blog.id)}>Delete</Button>
                             </td>
                         </tr>
                     ))}
                 </tbody>
             </Table>
+
+            {showDeleteConfirmation && (
+                <div className="confirmation-dialog">
+                    <button className="close-button" onClick={() => setShowDeleteConfirmation(false)}>
+                        X
+                    </button>
+                    <br></br>
+                    <p>Are you sure you want to delete this blog?</p>
+                    <Button variant="danger" onClick={handleDeleteBlog}>Yes</Button>
+                    <Button variant="outline-danger" onClick={() => setShowDeleteConfirmation(false)}>No</Button>
+                </div>
+            )}
+
 
             <Modal show={showModal} onHide={handleCloseModal}>
                 <Modal.Header closeButton>
