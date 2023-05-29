@@ -8,6 +8,7 @@ import './App.css';
 import Header from './components/common/header/header'
 import Footer from './components/common/footer/footer'
 import Dashboard from './components/dashboard/dashboard';
+import Blogs from './components/blogs/blogs';
 
 function App() {
   const [users, setUsers] = useState([
@@ -26,6 +27,7 @@ function App() {
             <Route path="/" element={<Login users={users} isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />} />
             <Route path="/signup" element={<Signup users={users} setUsers={setUsers} />} />
             <Route path="/dashboard" element={<Dashboard isLoggedIn={isLoggedIn}/>} />
+            <Route path="/blogs" element={<Blogs isLoggedIn={isLoggedIn}/>} />
 
           </Routes>
         </div>

@@ -67,7 +67,7 @@ function Signup({ users, setUsers }) {
                 validationErrors[err.path] = err.message;
             });
             setErrors(validationErrors);
-            toast.success('Sign Up Failed'); // Show success toast notification            
+            toast.error('Sign Up Failed'); // Show failure toast notification
         }
     };
 

@@ -26,6 +26,9 @@ function Header({ isLoggedIn, setIsLoggedIn}) {
                                 <Link to="/dashboard">Dashboard</Link>
                             </li>
                             <li>
+                                <Link to="/blogs">Blogs</Link>
+                            </li>
+                            <li>
                                 <button className="btn btn-danger" onClick={handleLogout}>Sign Out</button>
                             </li>
                         </React.Fragment>
