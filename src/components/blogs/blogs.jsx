@@ -63,8 +63,7 @@ function Blogs({ isLoggedIn }) {
         const updatedBlogs = blogs.filter(blog => blog.id !== deletingBlogId);
         setBlogs(updatedBlogs);
 
-        // Reset the deletingBlogId and hide the confirmation dialog
-        setDeletingBlogId(null);
+        // hide the confirmation dialog
         setShowDeleteConfirmation(false);
     };
 
